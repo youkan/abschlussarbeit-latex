@@ -1,25 +1,18 @@
 \NeedsTeXFormat{LaTeX2e}
-\documentclass[a4paper,10pt,bibtotoc,twoside,openright,pointlessnumbers,normalheadings
+\documentclass[a4paper,10pt,bibtotoc,twoside,openright,pointlessnumbers,normalheadings,DIV=9
 %,draft
 ]{scrbook}
+\KOMAoptions{DIV=last}
 
-% hier Namen etc. einsetzen
-\newcommand{\fullname}{Vorname Nachname}
-\newcommand{\email}{vorname.nachname@uni-ulm.de}
-\newcommand{\titel}{Titel der Arbeit}
-\newcommand{\jahr}{2008}
-\newcommand{\matnr}{123456}
-\newcommand{\gutachterA}{Prof.~Dr.~Streng Geheim}
-\newcommand{\gutachterB}{Prof.~Dr.~Un Leserlich}
-\newcommand{\betreuer}{Betreuername}
 
 \pagestyle{headings}
-\usepackage{a4, german}
+\usepackage{german}
 %\usepackage[latin1]{inputenc}
+%\usepackage[applemac]{inputenc} % Mac-Nutzer
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \renewcommand{\sfdefault}{phv}
-\renewcommand{\rmdefault}{ptm}
+\renewcommand{\rmdefault}{phv}
 \renewcommand{\ttdefault}{pcr}
 \usepackage{graphicx}
 \usepackage{verbatim}
@@ -27,6 +20,7 @@
 \usepackage{url}
 \usepackage{color}
 \usepackage{amssymb}
+\usepackage{setspace}
 \usepackage{listings}
 \lstset{language=Java,
   showstringspaces=false,
@@ -35,16 +29,29 @@
   basicstyle=\ttfamily,
   numberstyle=\tiny}
 
-%Trennungsregeln
-\hyphenation{Sil-ben-trenn-ung}
+% hier Namen etc. einsetzen
+\newcommand{\fullname}{Vorname Nachname}
+\newcommand{\email}{vorname.nachname@uni-ulm.de}
+\newcommand{\titel}{Visuelle, technische und ergonomische Anforderungen über XMPP im Bereich der Modellgetriebenen Softwareentwicklung}
+%\newcommand{\titel}{Titel der Arbeit}
+\newcommand{\jahr}{2009}
+\newcommand{\matnr}{123456}
+\newcommand{\gutachterA}{Prof.~Dr.~Streng Geheim}
+\newcommand{\gutachterB}{Prof.~Dr.~Un Leserlich}
+\newcommand{\betreuer}{Betreuername}
+% hier richtige Fakultät auswählen
+\newcommand{\fakultaet}{Ingenieurwissenschaften\\und Informatik}
+%\newcommand{\fakultaet}{Mathematik und\\Wirtschaftswissenschaften}
+%\newcommand{\fakultaet}{Naturwissenschaften}
+%\newcommand{\fakultaet}{Medizin}
+% nun noch unten das Institut einsetzen
+\newcommand{\institut}{Institut für Irgendetwas}
 
 %color in tables
 \usepackage{colortbl}
 \definecolor{Gray}{rgb}{0.80784, 0.86667, 0.90196} %dunkelblau
 \definecolor{Lightgray}{rgb}{0.9176, 0.95, 0.95686} %hellblau
 \definecolor{Akzent}{rgb}{0.6627, 0.63529, 0.55294} %akzentfarbe
-%\tabcolsep4mm
-%\newcolumntype{H}{>{\columncolor[gray]{0.8}}r}
 \setlength{\arrayrulewidth}{0.1pt}
 
 \clubpenalty10000
@@ -73,45 +80,49 @@ colorlinks=false,
 pdfborder=0 0 0	% keine Box um die Links!
 }
 
+%Trennungsregeln
+\hyphenation{Sil-ben-trenn-ung}
+
 \begin{document}
 \frontmatter
 
 % Titelseite
 \thispagestyle{empty}
-\vfill
-\begin{flushright}
-\includegraphics{images/unilogo_sw}
-\vfill
-{\bfseries \sffamily \huge \titel}\\[0.5em]
-\vfill
-\vfill
-\begin{minipage}{60mm}
-\textbf{\fullname}\\
-Universität Ulm\\
-Fakultät für Ingenieurwissenschaften\\
-und Informatik\\
-Institut für XYZ\\
-Monat \jahr\\
-Diplomarbeit im\\
-Studiengang Informatik
-\end{minipage}
-\vfill
-\end{flushright}
+\begin{addmargin*}[4mm]{-32mm}
+
+\includegraphics[height=1.8cm]{images/unilogo_bild}
+\hfill
+\includegraphics[height=1.8cm]{images/unilogo_wort}\\[1em]
+
+{\footnotesize
+{\bfseries Universität Ulm} \textbar ~89069 Ulm \textbar ~Germany
+\hspace*{78.5mm}\parbox[t]{38mm}{\bfseries Fakultät für\\
+\fakultaet\\
+% TODO hier Institut anpassen
+\mdseries \institut}\\[2cm]
+
+\parbox{140mm}{\bfseries \huge \titel}\\[0.5em]
+{\footnotesize Diplomarbeit an der Universität Ulm}\\[3em]
+
+{\footnotesize \bfseries Vorgelegt von:}\\
+{\footnotesize \fullname\\\email}\\[2em]
+{\footnotesize \bfseries Gutachter:}\\                     
+{\footnotesize\gutachterA\\
+\gutachterB}\\[2em]
+{\footnotesize \bfseries Betreuer:}\\ 
+{\footnotesize\betreuer}\\\\
+{\footnotesize\jahr}
+}
+\end{addmargin*}
+
 
 % Impressum
 \clearpage
 \thispagestyle{empty}
-\vfill
-{\large \bfseries Gutachter:}\\                     
-\gutachterA\\
-\gutachterB\\[2em]
-{\large \bfseries Betreuer:}\\ 
-\betreuer
-\vfill
 { \small
   \flushleft
-  Fassung \today \\
-  \copyright~\jahr \fullname\\
+  Fassung \today \\\vfill
+  \copyright~\jahr~\fullname\\[0.5em]
 % Falls keine Lizenz gewünscht wird bitte den folgenden Text entfernen.
 % Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
 % vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
@@ -121,6 +132,9 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
   Satz: PDF-\LaTeXe
 }
 
+
+% ab hier Zeilenabstand 1,4 fach 10pt/14pt
+\setstretch{1.4}
 
 \tableofcontents
 
@@ -135,7 +149,10 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 
 \backmatter
 
-\bibliographystyle{plaindin}
+\bibliographystyle{plaindin} % Nummern und alphabetisch sortiert
+%\bibliographystyle{alphadin} % Buchstaben und sortiert
+%\bibliographystyle{abbrvdin} % Nummern und abgekürzte Namen
+%\bibliographystyle{unsrtdin} % Nummern und unsortiert
 \bibliography{bibliography}
 
 

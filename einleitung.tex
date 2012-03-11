@@ -49,6 +49,25 @@ Hier nur ein kurzes Beispiel, in jedem \LaTeX Buch finden sich gute Anleitungen 
 \end{table}
 
 
+\subsection{Formeln}
+
+Mathematische Formeln lassen sich als Umgebung mit \verb|\begin{math}| und \verb|\end{math}| erzeugen, es gibt aber auch eine abgekürzte Schreibweise mit \verb|\( Formel \)| wobei die Formel dann im laufenden Text bleibt. Die kürzeste Form ist mit zwei \verb|$| um die Formel, z.B.~so Wasser ist H$_2$O.
+
+Mit der Schreibweise \verb|\[ Formel \]| wird die Formel mittig auf einer neuen Zeile gesetzt, z.B.
+
+\[y = x^2 \]
+
+Dies ist die Kurzform der Umgebung \verb|equation|, mit der die Gleichung auch nummeriert wird. 
+
+\begin{equation}
+x_{1,2} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\label{mitternachtsformel}
+\end{equation}
+
+Wenn wir z.B.~über die beliebte Mitternachtsformel (Gleichung \ref{mitternachtsformel}) schreiben wollen lässt sich diese also wie ein Bild referenzieren.
+
+
+
 \subsection{Quellcode}
 
 Quellcode und ähnlich zu formatierende Texte können mit \verb|verbatim| in einer Umgebung gesetzt werden.
