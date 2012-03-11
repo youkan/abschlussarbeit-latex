@@ -1,0 +1,187 @@
+\NeedsTeXFormat{LaTeX2e}
+\documentclass[a4paper,10pt,bibtotoc,twoside,openright,pointlessnumbers,normalheadings
+%,draft
+]{scrbook}
+
+% hier Namen etc. einsetzen
+\newcommand{\fullname}{Vorname Nachname}
+\newcommand{\email}{vorname.nachname@uni-ulm.de}
+\newcommand{\titel}{Titel der Arbeit}
+\newcommand{\jahr}{2007}
+\newcommand{\matnr}{123456}
+\newcommand{\gutachterA}{Prof.~Dr.~Streng Geheim}
+\newcommand{\gutachterB}{Prof.~Dr.~Un Leserlich}
+\newcommand{\betreuer}{Betreuername}
+
+
+\pagestyle{headings}
+\usepackage{a4, german}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+
+%Trennungsregeln
+\hyphenation{Hash-funk-tion Hash-funk-tionen}
+
+% Zeilenabstand 1,4 fach 10pt/14pt
+\renewcommand{\baselinestretch}{1.4}
+% Zeilenabstand in Listen verringern
+%\newcommand{\listezeilenabstand}{
+%    \setlength{\itemsep}{-.2cm}
+%    \vspace{-.6cm}%
+%}
+
+%helvetica
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+%\usepackage{makeidx}
+%\makeindex
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{color}
+
+%color in tables
+\usepackage{colortbl}
+\definecolor{Gray}{rgb}{0.80784, 0.86667, 0.90196} %dunkelblau
+\definecolor{Lightgray}{rgb}{0.9176, 0.95, 0.95686} %hellblau
+\definecolor{Akzent}{rgb}{0.6627, 0.63529, 0.55294} %akzentfarbe
+%\tabcolsep4mm
+%\newcolumntype{H}{>{\columncolor[gray]{0.8}}r}
+\setlength{\arrayrulewidth}{0.1pt}
+
+\clubpenalty10000
+\widowpenalty10000
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.4ex plus 0.35ex minus 0.3ex}
+
+%Literatur
+\usepackage{amssymb}
+
+% Tiefe, bis zu der Überschriften in das Inhaltsverzeichnis kommen
+\setcounter{tocdepth}{3}
+
+\pdfinfo{
+  /Author (\fullname)
+  /Title (\titel)
+  /Producer     (pdfeTex 3.14159-1.30.6-2.2)
+  /Keywords ()
+}
+
+\usepackage{hyperref}
+\hypersetup{
+pdftitle=\titel,
+pdfauthor=\fullname,
+pdfsubject={Diplomarbeit},
+pdfproducer={pdfeTex 3.14159-1.30.6-2.2},
+colorlinks=false,
+pdfborder=0 0 0	% keine Box um die Links!
+}
+
+\begin{document}
+
+%für code listing
+\definecolor{lightestyellow}{rgb}{1,1,0.9}
+\lstset{
+emph={int,for},
+emphstyle=\tt\color{red},
+backgroundcolor=\color{lightestyellow},
+stringstyle=\tt,
+basicstyle=\tt,
+numbers=left
+}
+
+\frontmatter
+
+\thispagestyle{empty}
+
+\newlength{\backup}
+\setlength{\backup}{\headheight}
+%\setlength{\headheight}{42mm}
+
+\includegraphics[height=1.8cm]{images/logo_100_sw_bildmarke}
+\hfill
+\includegraphics[height=1.8cm]{images/logo_100_sw_wortmarke}\\[1em]
+
+%11pt: 3.6 9.35
+{\footnotesize
+{\bfseries Universität Ulm} \textbar ~89069 Ulm \textbar ~Germany
+\hspace*{3.73cm}{\bfseries Fakultät für\\\hspace*{8.85cm}Ingenieurwissenschaften\\\hspace*{8.85cm}und Informatik}\\
+\hspace*{8.85cm}Institut für Medieninformatik\\[1em]
+\hspace*{8.85cm}{\bfseries \fullname}\\
+\hspace*{8.85cm}{\email}\\[1em]
+\hspace*{8.85cm}\jahr\\[5em]
+}
+{\bfseries \huge Titel der Arbeit}\\[0.5em]
+{\large Diplomarbeit an der Universität Ulm}\\[3em]
+
+{\large \bfseries Vorgelegt von:}\\                     
+\fullname\\[2em]
+{\large \bfseries Gutachter:}\\                     
+\gutachterA\\
+\gutachterB\\[2em]
+{\large \bfseries Betreuer:}\\ 
+\betreuer\\
+
+
+\newpage
+\setlength{\headheight}{\backup}
+
+
+\thispagestyle{empty}
+
+{% impressum
+  \newpage
+  \small
+  \flushleft
+  \mbox{}\\\vspace{180mm}
+
+  Fassung \today \\
+  {\normalsize \copyright~\jahr \fullname}\\
+  %
+This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 2.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.0/de/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA. \\
+  %
+  Satz: PDF-\LaTeXe
+}
+
+
+\tableofcontents
+
+\mainmatter
+%\input{kapitel/einleitung}
+% hier weitere Kapitel einbinden
+%\input{}
+
+
+\appendix
+% hier Anhänge einbinden
+%\input{sources}
+
+\backmatter
+
+% zitiert, aber niergends direkt erwähnt
+\nocite{}
+
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+
+
+\newpage
+\thispagestyle{empty}
+
+Name: \fullname \hfill Matrikelnummer: \matnr \vspace{2cm}
+
+\minisec{Erklärung}
+
+Ich erkläre, dass ich die Arbeit selbständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe.\vspace{2cm}
+
+Ulm, den \dotfill
+
+\hspace{10cm} {\footnotesize Vorname Nachname}
+\end{document}
