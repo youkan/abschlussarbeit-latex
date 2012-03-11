@@ -1,0 +1,92 @@
+\chapter{Einleitung}
+
+Diese kleine Einleitung soll dem Nutzer helfen selbst die eigene Arbeit mit \LaTeX zu schreiben. Sie enthält zu den wichtigsten Themen Beispiele.
+
+
+\section{Struktur}
+
+Für diese Arbeit lassen sich als Überschriften die Überschriften in verschiedenen Stufen verwenden.
+
+\begin{verbatim}
+\chapter{Einleitung}
+\section{Struktur}
+\subsection{}
+\subsubsection{}
+\end{verbatim}
+
+Allerdings sollte man sich überlegen, ob man wirklich bis zur Stufe \verb|subsubsection| Überschriften benötigt.
+
+
+
+\section{Illustrationen}
+
+
+\subsection{Bilder}
+
+Bilder kann man natürlich auch in Arbeiten integrieren. Für Fotos und ähnliches unterstützt PDF-\LaTeX direkt \verb|jpg| und \verb|png|, ansonsten empfiehlt es sich Vektorgrafiken zu verwenden und diese als \verb|pdf| zu speichern. Sollte ein Bild einmal zu viel weißen Raum um sich haben, so kann man mit dem Werkzeug \verb|pdfcrop| das Bild automatisch ausschneiden\cite{pdfcrop}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.4\textwidth]{images/Suffix_tree_ABAB_BABA}
+\caption{\label{anker}Bechreibung des Bilds}
+\end{figure}
+
+Mit Hilfe eines Labels kann man sich dann im Text auf diese Grafik (\ref{anker}) beziehen. 
+
+
+\subsection{Tabellen}
+
+Hier nur ein kurzes Beispiel, in jedem \LaTeX Buch finden sich gute Anleitungen zum Erstellen von Tabellen.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+	A & B & C \\\hline
+	x & x & x \\
+	x & x & x
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\subsection{Quellcode}
+
+Quellcode und ähnlich zu formatierende Texte können mit \verb|verbatim| in einer Umgebung gesetzt werden.
+
+\begin{verbatim}
+Dieser Text ist in Schreibmaschinenschrift
+\end{verbatim}
+
+Schöner geht es mit dem \verb|listings|-Paket, das Quelltext auch entsprechend formatiert. Dazu kann man in der Präambel die Sprache angeben in der Quelltexte sind.
+
+\begin{lstlisting}
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+\end{lstlisting}
+
+Im Text gibt man Wörter am Besten als \verb|\verb##| an, dabei erwartet \LaTeX zweimal das gleiche Zeichen als Begrenzung. Im Beispiel ist dies die Raute \verb|#|, man kann aber ein anderes Zeichen nehmen, je nachdem was im zu druckenden Wort an Zeichen vorkommt.
+
+
+
+\section{Text}
+
+Text kann mit dem Befehl \verb|\emph{}| \emph{hervorgehoben} werden. Falls in einem Satz ein Punkt vorkommt macht man vor ihm kein Leerzeichen sonder eine Tilde (\verb|~|), denn dann fügt \LaTeX den korrekten Abstand ein, z.B.~so.
+
+\begin{verbatim}
+z.B.~so
+\end{verbatim}
+
+In der Präambel von \verb|diplom.tex| gibt es den Befehl \verb|hypenation|, der zur Silbentrennung da ist. \LaTeX hat eine eingebaute Silbentrennung, die jedoch bei manchen Wörtern falsch trennt. Damit diese Worte korrekt getrennt werden gibt man sie dann mit dem Befehl an\footnote{Das Wort \emph{Silbentrennung} ist hier das Beispiel}.
+
+Fußnoten werden mit dem Befehl \verb|footnote| gemacht\footnote{Wie man schon im vorherigen Absatz sehen konnte.}.
+
+In wissenschaftlichen Arbeiten muss man des öfteren andere Arbeiten zitieren. Dazu nutzt man den Befehl \verb|\cite{name}|. In eckigen Klammern kann man noch die Seitenzahl angeben, falls notwendig. Der Name ist ein Schlüssel aus der Datei \verb|bibliography.bib| \cite[S.~10]{kopka}. Falls einmal ein Werk indirekt zu einem Teil der Arbeit beigetragen hat kann man es auch mit \verb|nocite| angeben, dann landet es in der Literaturliste, aber nicht direkt im Text.
+
+
+\subsection{Weiterführendes}
+
+Zum Schluß sei auf die Vielzahl an Büchern zu \LaTeX verwiesen. In jeder Bibliothek wird sich eine Einführung finden, in der dann weitere Themen wie mathematische Formeln, Aufbau von Briefen und viele nützliche Erweiterungen besprochen werden.
+

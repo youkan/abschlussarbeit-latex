@@ -7,44 +7,36 @@
 \newcommand{\fullname}{Vorname Nachname}
 \newcommand{\email}{vorname.nachname@uni-ulm.de}
 \newcommand{\titel}{Titel der Arbeit}
-\newcommand{\jahr}{2007}
+\newcommand{\jahr}{2008}
 \newcommand{\matnr}{123456}
 \newcommand{\gutachterA}{Prof.~Dr.~Streng Geheim}
 \newcommand{\gutachterB}{Prof.~Dr.~Un Leserlich}
 \newcommand{\betreuer}{Betreuername}
 
-
 \pagestyle{headings}
 \usepackage{a4, german}
-\usepackage[latin1]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \renewcommand{\sfdefault}{phv}
 \renewcommand{\rmdefault}{ptm}
 \renewcommand{\ttdefault}{pcr}
-
-%Trennungsregeln
-\hyphenation{Hash-funk-tion Hash-funk-tionen}
-
-% Zeilenabstand 1,4 fach 10pt/14pt
-\renewcommand{\baselinestretch}{1.4}
-% Zeilenabstand in Listen verringern
-%\newcommand{\listezeilenabstand}{
-%    \setlength{\itemsep}{-.2cm}
-%    \vspace{-.6cm}%
-%}
-
-%helvetica
-\renewcommand{\familydefault}{\sfdefault}
-\usepackage{helvet}
-
-%\usepackage{makeidx}
-%\makeindex
 \usepackage{graphicx}
 \usepackage{verbatim}
 \usepackage{tabularx}
 \usepackage{url}
-\usepackage{listings}
 \usepackage{color}
+\usepackage{amssymb}
+\usepackage{listings}
+\lstset{language=Java,
+  showstringspaces=false,
+  frame=single,
+  numbers=left,
+  basicstyle=\ttfamily,
+  numberstyle=\tiny}
+
+%Trennungsregeln
+\hyphenation{Sil-ben-trenn-ung}
 
 %color in tables
 \usepackage{colortbl}
@@ -61,10 +53,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1.4ex plus 0.35ex minus 0.3ex}
 
-%Literatur
-\usepackage{amssymb}
-
-% Tiefe, bis zu der ‹berschriften in das Inhaltsverzeichnis kommen
+% Tiefe, bis zu der √úberschriften in das Inhaltsverzeichnis kommen
 \setcounter{tocdepth}{3}
 
 \pdfinfo{
@@ -85,68 +74,50 @@ pdfborder=0 0 0	% keine Box um die Links!
 }
 
 \begin{document}
-
-%f¸r code listing
-\definecolor{lightestyellow}{rgb}{1,1,0.9}
-\lstset{
-emph={int,for},
-emphstyle=\tt\color{red},
-backgroundcolor=\color{lightestyellow},
-stringstyle=\tt,
-basicstyle=\tt,
-numbers=left
-}
-
 \frontmatter
 
+% Titelseite
 \thispagestyle{empty}
+\vfill
+\begin{flushright}
+\includegraphics{images/unilogo_sw}
+\vfill
+{\bfseries \sffamily \huge \titel}\\[0.5em]
+\vfill
+\vfill
+\begin{minipage}{60mm}
+\textbf{\fullname}\\
+Universit√§t Ulm\\
+Fakult√§t f√ºr Ingenieurwissenschaften\\
+und Informatik\\
+Institut f√ºr XYZ\\
+Monat \jahr\\
+Diplomarbeit im\\
+Studiengang Informatik
+\end{minipage}
+\vfill
+\end{flushright}
 
-\newlength{\backup}
-\setlength{\backup}{\headheight}
-%\setlength{\headheight}{42mm}
-
-\includegraphics[height=1.8cm]{images/logo_100_sw_bildmarke}
-\hfill
-\includegraphics[height=1.8cm]{images/logo_100_sw_wortmarke}\\[1em]
-
-%11pt: 3.6 9.35
-{\footnotesize
-{\bfseries Universit‰t Ulm} \textbar ~89069 Ulm \textbar ~Germany
-\hspace*{3.73cm}{\bfseries Fakult‰t f¸r\\\hspace*{8.85cm}Ingenieurwissenschaften\\\hspace*{8.85cm}und Informatik}\\
-\hspace*{8.85cm}Institut f¸r Medieninformatik\\[1em]
-\hspace*{8.85cm}{\bfseries \fullname}\\
-\hspace*{8.85cm}{\email}\\[1em]
-\hspace*{8.85cm}\jahr\\[5em]
-}
-{\bfseries \huge Titel der Arbeit}\\[0.5em]
-{\large Diplomarbeit an der Universit‰t Ulm}\\[3em]
-
-{\large \bfseries Vorgelegt von:}\\                     
-\fullname\\[2em]
+% Impressum
+\clearpage
+\thispagestyle{empty}
+\vfill
 {\large \bfseries Gutachter:}\\                     
 \gutachterA\\
 \gutachterB\\[2em]
 {\large \bfseries Betreuer:}\\ 
-\betreuer\\
-
-
-\newpage
-\setlength{\headheight}{\backup}
-
-
-\thispagestyle{empty}
-
-{% impressum
-  \newpage
-  \small
+\betreuer
+\vfill
+{ \small
   \flushleft
-  \mbox{}\\\vspace{180mm}
-
   Fassung \today \\
-  {\normalsize \copyright~\jahr \fullname}\\
-  %
-This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 2.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.0/de/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA. \\
-  %
+  \copyright~\jahr \fullname\\
+% Falls keine Lizenz gew√ºnscht wird bitte den folgenden Text entfernen.
+% Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
+% vervielf√§ltigen und Kopien zu machen. Dabei muss aber immer der Autor
+% angegeben werden. Eine kommerzielle Verwertung ist f√ºr den Autor
+% weiter m√∂glich.
+This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/de/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA. \\
   Satz: PDF-\LaTeXe
 }
 
@@ -154,34 +125,30 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 \tableofcontents
 
 \mainmatter
-%\input{kapitel/einleitung}
+\input{einleitung}
 % hier weitere Kapitel einbinden
-%\input{}
 
 
 \appendix
-% hier Anh‰nge einbinden
-%\input{sources}
+% hier Anh√§nge einbinden
+\input{sources}
 
 \backmatter
 
-% zitiert, aber niergends direkt erw‰hnt
-\nocite{}
-
-\bibliographystyle{alpha}
+\bibliographystyle{plaindin}
 \bibliography{bibliography}
 
 
-\newpage
+\clearpage
 \thispagestyle{empty}
 
 Name: \fullname \hfill Matrikelnummer: \matnr \vspace{2cm}
 
-\minisec{Erkl‰rung}
+\minisec{Erkl√§rung}
 
-Ich erkl‰re, dass ich die Arbeit selbst‰ndig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe.\vspace{2cm}
+Ich erkl√§re, dass ich die Arbeit selbst√§ndig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe.\vspace{2cm}
 
 Ulm, den \dotfill
 
-\hspace{10cm} {\footnotesize Vorname Nachname}
+\hspace{10cm} {\footnotesize \fullname}
 \end{document}
