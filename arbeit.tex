@@ -7,6 +7,7 @@
 
 \pagestyle{headings}
 \usepackage{ngerman}
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \renewcommand{\sfdefault}{phv}
@@ -19,6 +20,8 @@
 \usepackage{url}
 \usepackage{color}
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{setspace}
 \usepackage{listings}
 \lstset{language=Java,
@@ -33,7 +36,7 @@
 \newcommand{\email}{vorname.nachname@uni-ulm.de}
 \newcommand{\titel}{Ein sehr langer Titel, der sogar über mehrere Zeilen geht: Wie man noch längere Titel macht}
 %\newcommand{\titel}{Titel der Arbeit}
-\newcommand{\jahr}{2009}
+\newcommand{\jahr}{2012}
 \newcommand{\matnr}{123456}
 \newcommand{\gutachterA}{Prof.\ Dr.\ Streng Geheim}
 \newcommand{\gutachterB}{Prof.\ Dr.\ Un Leserlich}
@@ -87,6 +90,14 @@ pdfborder=0 0 0	% keine Box um die Links!
 % \renewcommand{\labelitemii}{$\circ$}
 % \renewcommand{\labelitemiii}{$\cdot$}
 
+% TeX-Tricks
+% Dank UTF8 gehen auch Anführungszeichen toll:
+% „“
+% Tastenkombinationen:
+% AltGr+V: „
+% AltGr+B: “
+% Geschützes Leerzeichen: ~
+
 
 \begin{document}
 \frontmatter
@@ -125,14 +136,36 @@ pdfborder=0 0 0	% keine Box um die Links!
 \thispagestyle{empty}
 { \small
   \flushleft
-  Fassung \today \\\vfill
+  „\titel“\\
+  Fassung vom \today \\ \vfill
+  \textsc{Danksagungen:} \FIXME{Danksagungen} \\ \vspace{1cm}
+  Bei der Erstellung dieser Diplomarbeit wurde ausschließlich freie Software eingesetzt: \\
+  \begin{figure}[ht]
+  	\subfigure{\includegraphics[height=1cm]{images/sw/ubuntu}}
+  	\hspace{0.5cm} 
+  	\subfigure{\includegraphics[height=1cm]{images/sw/texmaker}}
+  	\hspace{0.5cm} 
+  	\subfigure{\includegraphics[height=1cm]{images/sw/inkscape}}
+  	\hspace{0.5cm} 
+  	\subfigure{\includegraphics[height=1cm]{images/sw/subversion}}
+  	\hspace{0.5cm} 
+  	\subfigure{\includegraphics[height=1cm]{images/sw/jabref}}
+  	\hspace{0.5cm} 
+  	\subfigure{\includegraphics[height=1cm]{images/sw/firefox}}
+  	\hspace{0.5cm} 
+  	\subfigure{\includegraphics[height=1cm]{images/sw/evince}}
+  \end{figure}  
+  
+  \vspace{1cm}
+  Satz: PDF-\LaTeXe \\
+  Druck: \FIXME{Druck} \\ \vspace{1cm}
   \copyright~\jahr~\fullname\\[0.5em]
 % Falls keine Lizenz gewünscht wird bitte den folgenden Text entfernen.
 % Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
 % vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
 % angegeben werden. Eine kommerzielle Verwertung ist für den Autor
 % weiter möglich.
-This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/de/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA. \\
+Dieses Werk ist unter der Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Germany License lizensiert: \url{http://creativecommons.org/licenses/by-nc-sa/3.0/de/}\\
   Satz: PDF-\LaTeXe
 }
 
@@ -143,13 +176,13 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 \tableofcontents
 
 \mainmatter
-\input{einleitung}
+\input{chapters/einleitung}
 % hier weitere Kapitel einbinden
 
 
 \appendix
 % hier Anhänge einbinden
-\input{sources}
+\input{chapters/sources}
 
 \backmatter
 
