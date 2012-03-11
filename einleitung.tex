@@ -102,17 +102,32 @@ Im Text gibt man Wörter am Besten als \verb|\verb##| an, dabei erwartet \LaTeX 
 
 \section{Text}
 
-Text kann mit dem Befehl \verb|\emph{}| \emph{hervorgehoben} werden. Falls in einem Satz ein Punkt vorkommt macht man vor ihm kein Leerzeichen sonder eine Tilde (\verb|~|), denn dann fügt \LaTeX den korrekten Abstand ein, z.B.~so.
+Text kann mit dem Befehl \verb|\emph{}| \emph{hervorgehoben} werden. Falls in einem Satz ein Punkt vorkommt macht man vor ihm kein Leerzeichen sondern einen Backslash (\verb|\|), denn dann fügt \LaTeX den korrekten Abstand ein. Zwischen manche Abkürzungen wie z.\,B.\ fügt man zusätzlich \verb|\,| ein, um einen schmalen Abstand zu erzeugen.
 
 \begin{verbatim}
-z.B.~so
+z.\,B.\ so
 \end{verbatim}
 
 In der Präambel von \verb|diplom.tex| gibt es den Befehl \verb|hypenation|, der zur Silbentrennung da ist. \LaTeX hat eine eingebaute Silbentrennung, die jedoch bei manchen Wörtern falsch trennt. Damit diese Worte korrekt getrennt werden gibt man sie dann mit dem Befehl an\footnote{Das Wort \emph{Silbentrennung} ist hier das Beispiel}.
 
 Fußnoten werden mit dem Befehl \verb|footnote| gemacht\footnote{Wie man schon im vorherigen Absatz sehen konnte.}.
 
-In wissenschaftlichen Arbeiten muss man des öfteren andere Arbeiten zitieren. Dazu nutzt man den Befehl \verb|\cite{name}|. In eckigen Klammern kann man noch die Seitenzahl angeben, falls notwendig. Der Name ist ein Schlüssel aus der Datei \verb|bibliography.bib| \cite[S.~10]{kopka}. Falls einmal ein Werk indirekt zu einem Teil der Arbeit beigetragen hat kann man es auch mit \verb|nocite| angeben, dann landet es in der Literaturliste, aber nicht direkt im Text.
+In wissenschaftlichen Arbeiten muss man des öfteren andere Arbeiten zitieren. Dazu nutzt man den Befehl \verb|\cite{name}|. In eckigen Klammern kann man noch die Seitenzahl angeben, falls notwendig. Der Name ist ein Schlüssel aus der Datei \verb|bibliography.bib| \cite[S.\ 10]{kopka}. Falls einmal ein Werk indirekt zu einem Teil der Arbeit beigetragen hat kann man es auch mit \verb|nocite| angeben, dann landet es in der Literaturliste, aber nicht direkt im Text.
+
+
+\subsection{Aufzählungen}
+
+\begin{itemize}
+\item  Hier
+\item  stehen
+\item  Sachen
+\begin{itemize}
+\item  die
+\item  sogar
+\item  eingerückt werden können.
+\end{itemize}
+\end{itemize}
+
 
 
 \subsection{Weiterführendes}
