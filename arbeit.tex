@@ -1,9 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
-\documentclass[a4paper,10pt,bibtotoc,twoside,openright,pointlessnumbers,normalheadings,DIV=9
+\documentclass[a4paper,10pt,bibliography=totoc,twoside,openright,numbers=noenddot,headings=normal,DIV=9
 %,draft
 ]{scrbook}
 \KOMAoptions{DIV=last}
-
+\usepackage{scrhack}
 
 \pagestyle{headings}
 \usepackage[ngerman]{babel}
@@ -30,6 +30,7 @@
   numbers=left,
   basicstyle=\ttfamily,
   numberstyle=\tiny}
+\newcommand{\FIXME}[1]{\colorbox{yellow}{\bf FIXME: #1}}
 
 % hier Namen etc. einsetzen
 \newcommand{\fullname}{Vorname Nachname}
@@ -111,25 +112,31 @@ pdfborder=0 0 0	% keine Box um die Links!
 
 \includegraphics[height=1.8cm]{images/unilogo_bild}
 \hfill
-\includegraphics[height=1.8cm]{images/unilogo_wort}\\[1em]
+\includegraphics[height=1.8cm]{images/unilogo_wort}
+\vspace*{2.1em}
 
 {\footnotesize
 {\bfseries Universität Ulm} \textbar ~89069 Ulm \textbar ~Germany
 \hfill\parbox[t]{42mm}{\bfseries Fakultät für\\
 \fakultaet\\
-\mdseries \institut}\\[2cm]
+\mdseries \institut}
+\vspace*{2cm}
 
-\parbox{140mm}{\bfseries \huge \titel}\\[0.5em]
-{\footnotesize Diplomarbeit an der Universität Ulm}\\[3em]
+\parbox{140mm}{\bfseries \huge \titel}
 
-{\footnotesize \bfseries Vorgelegt von:}\\
-{\footnotesize \fullname\\\email}\\[2em]
-{\footnotesize \bfseries Gutachter:}\\                     
-{\footnotesize\gutachterA\\
-\gutachterB}\\[2em]
-{\footnotesize \bfseries Betreuer:}\\ 
-{\footnotesize\betreuer}\\\\
-{\footnotesize\jahr}
+{\footnotesize Diplomarbeit an der Universität Ulm}
+\vspace*{4em}
+
+{\footnotesize
+{\bfseries Vorgelegt von:}\\
+\fullname\\\email\\[2em]
+{\bfseries Gutachter:}\\
+\gutachterA\\
+\gutachterB\\[2em]
+{\bfseries Betreuer:}\\
+\betreuer
+\\[1.5em]
+\jahr}
 }
 \end{addmargin*}
 
