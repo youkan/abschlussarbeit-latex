@@ -6,8 +6,8 @@
 
 
 \pagestyle{headings}
-\usepackage{ngerman}
 \usepackage[ngerman]{babel}
+\usepackage[babel,german=quotes]{csquotes}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \renewcommand{\sfdefault}{phv}
@@ -91,12 +91,15 @@ pdfborder=0 0 0	% keine Box um die Links!
 % \renewcommand{\labelitemiii}{$\cdot$}
 
 % TeX-Tricks
-% Dank UTF8 gehen auch Anführungszeichen toll:
-% „“
+% Dank UTF8 gehen auch Anführungszeichen toll: „“
 % Tastenkombinationen:
 % „ – Windows: AltGr+V, OS X: Alt+^
 % “ – Windows: AltGr+B, OS X: Alt+2
 % Geschützes Leerzeichen: ~
+% In manchen Editoren klappt das leider nicht.
+% Man kann entweder manuell deutsche Anführungszeichen mit \glqq und \grqq
+% setzen oder mit \enquote{Text} die Art der Zeichen für das ganze Dokument
+% im Header anpassen. Siehe dazu die Zeile mit dem Paket csquotes.
 
 
 \begin{document}
