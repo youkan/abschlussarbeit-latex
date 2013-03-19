@@ -1,18 +1,34 @@
+%%
+%% Dokumentenart
+%%
 \NeedsTeXFormat{LaTeX2e}
-\documentclass[a4paper,10pt,bibliography=totoc,twoside,openright,numbers=noenddot,headings=normal,DIV=9
-%,draft
+\documentclass[
+    a4paper,
+    10pt,
+    bibliography=totoc,
+    twoside,
+    openright,
+    numbers=noenddot,
+    headings=normal,
+    DIV=9,
+    parskip
+    %,draft
 ]{scrbook}
-\KOMAoptions{DIV=last}
-\usepackage{scrhack}
 
-\pagestyle{headings}
-\usepackage[ngerman]{babel}
-\usepackage[babel,german=quotes]{csquotes}
+
+%%
+%% Unterstützung für deutsche Sprache, Umlaute etc.
+%%
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\renewcommand{\sfdefault}{phv}
-\renewcommand{\rmdefault}{phv}
-\renewcommand{\ttdefault}{pcr}
+\usepackage[ngerman]{babel}
+\usepackage[babel,german=quotes]{csquotes}
+
+
+%%
+%% Diverse Pakete
+%%
+\usepackage{scrhack}
 \usepackage{graphicx}
 \usepackage{verbatim}
 \usepackage{tabularx}
@@ -24,185 +40,268 @@
 \usepackage{amsthm}
 \usepackage{setspace}
 \usepackage{listings}
-\lstset{language=Java,
-  showstringspaces=false,
-  frame=single,
-  numbers=left,
-  basicstyle=\ttfamily,
-  numberstyle=\tiny}
-\newcommand{\FIXME}[1]{\colorbox{yellow}{\bf FIXME: #1}}
+\usepackage{colortbl}
+%\usepackage{showframe} % Seitenspiegel anzeigen
+\usepackage{microtype}
+\usepackage{hyperref} % muss letztes Paket in der Liste sein
 
-% hier Namen etc. einsetzen
+
+%%
+%% hier Namen etc. einsetzen
+%%
 \newcommand{\fullname}{Vorname Nachname}
 \newcommand{\email}{vorname.nachname@uni-ulm.de}
-\newcommand{\titel}{Ein sehr langer Titel, der sogar über mehrere Zeilen geht: Wie man noch längere Titel macht}
-%\newcommand{\titel}{Titel der Arbeit}
+\newcommand{\titel}{Ein sehr langer Titel, der sogar über mehrere Zeilen geht:
+Wie man noch längere Titel macht}
 \newcommand{\jahr}{2012}
 \newcommand{\matnr}{123456}
 \newcommand{\gutachterA}{Prof.\ Dr.\ Streng Geheim}
 \newcommand{\gutachterB}{Prof.\ Dr.\ Un Leserlich}
 \newcommand{\betreuer}{Betreuername}
-% hier richtige Fakultät auswählen
 \newcommand{\fakultaet}{Ingenieurwissenschaften\\und Informatik}
 %\newcommand{\fakultaet}{Mathematik und\\Wirtschaftswissenschaften}
 %\newcommand{\fakultaet}{Naturwissenschaften}
 %\newcommand{\fakultaet}{Medizin}
-% nun noch unten das Institut einsetzen
 \newcommand{\institut}{Institut für Irgendetwas}
+\newcommand{\arbeit}{Diplomarbeit}
+%\newcommand{\arbeit}{Bachelorarbeit}
 
-%color in tables
-\usepackage{colortbl}
+
+%%
+%% Setzt Autor und Titel in den Metadaten des erzeugten Dokumentes
+%%
+\pdfinfo{
+    /Author (\fullname)
+    /Title (\titel)
+    /Producer (pdfeTex 3.14159-1.30.6-2.2)
+    /Keywords ()
+}
+\hypersetup{
+    pdftitle=\titel,
+    pdfauthor=\fullname,
+    pdfsubject={\arbeit},
+    pdfproducer={pdfeTex 3.14159-1.30.6-2.2},
+    colorlinks=false,
+    pdfborder=0 0 0
+}
+
+
+%%
+%% Tiefe, bis zu der Überschriften in das Inhaltsverzeichnis kommen
+%%
+\setcounter{tocdepth}{3}
+
+
+%%
+%% Verhindert überhängende Absatzteile
+%%
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+
+
+%%
+%% Einstellungen für Codelistings
+%%
+\lstset{
+    language=Java,
+    showstringspaces=false,
+    frame=single,
+    numbers=left,
+    basicstyle=\ttfamily,
+    numberstyle=\tiny
+}
+
+
+%%
+%% Formatierung des Literaturverzeichnisses
+%%
+\bibliographystyle{plaindin} % Nummern und alphabetisch sortiert
+%\bibliographystyle{alphadin} % Buchstaben und sortiert
+%\bibliographystyle{abbrvdin} % Nummern und abgekürzte Namen
+%\bibliographystyle{unsrtdin} % Nummern und unsortiert
+
+
+%%
+%% Eigene Makros
+%%
+\newcommand{\FIXME}[1]{\colorbox{yellow}{\bf FIXME: #1}}
+
+
+%%
+%% Eigene Farben
+%%
 \definecolor{Gray}{rgb}{0.80784, 0.86667, 0.90196} %dunkelblau
 \definecolor{Lightgray}{rgb}{0.9176, 0.95, 0.95686} %hellblau
 \definecolor{Akzent}{rgb}{0.6627, 0.63529, 0.55294} %akzentfarbe
+
+
+%%
+%% Liniendicke in Tabellen etc.
+%%
 \setlength{\arrayrulewidth}{0.1pt}
 
-\clubpenalty10000
-\widowpenalty10000
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1.4ex plus 0.35ex minus 0.3ex}
+%%
+%% Schriftarten
+%%
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\ttdefault}{pcr}
+\KOMAoptions{DIV=last}
 
-% Tiefe, bis zu der Überschriften in das Inhaltsverzeichnis kommen
-\setcounter{tocdepth}{3}
 
-\pdfinfo{
-  /Author (\fullname)
-  /Title (\titel)
-  /Producer     (pdfeTex 3.14159-1.30.6-2.2)
-  /Keywords ()
-}
+%%
+%% Seitenlayout
+%%
+\pagestyle{headings}
 
-\usepackage{hyperref}
-\hypersetup{
-pdftitle=\titel,
-pdfauthor=\fullname,
-pdfsubject={Diplomarbeit},
-pdfproducer={pdfeTex 3.14159-1.30.6-2.2},
-colorlinks=false,
-pdfborder=0 0 0	% keine Box um die Links!
-}
 
-%Trennungsregeln
+%%
+%% Trennungsregeln
+%%
 \hyphenation{Sil-ben-trenn-ung}
 
-% Schönere Bullets bei Aufzählungen
-% \renewcommand{\labelitemi}{$\bullet$}
-% \renewcommand{\labelitemii}{$\circ$}
-% \renewcommand{\labelitemiii}{$\cdot$}
 
-% TeX-Tricks
-% Dank UTF8 gehen auch Anführungszeichen toll: „“
-% Tastenkombinationen:
-% „ – Windows: AltGr+V, OS X: Alt+^
-% “ – Windows: AltGr+B, OS X: Alt+2
-% Geschützes Leerzeichen: ~
-% In manchen Editoren klappt das leider nicht.
-% Man kann entweder manuell deutsche Anführungszeichen mit \glqq und \grqq
-% setzen oder mit \enquote{Text} die Art der Zeichen für das ganze Dokument
-% im Header anpassen. Siehe dazu die Zeile mit dem Paket csquotes.
+%%
+%% Schönere Bullets bei Aufzählungen
+%%
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemiii}{$\cdot$}
 
 
+%%
+%% Beginn des eigentlichen Dokumentes
+%%
 \begin{document}
+
+
+%%
+%% Vorspann
+%%
 \frontmatter
 
-% Titelseite
+
+%%
+%% Titelseite
+%%
 \thispagestyle{empty}
 \begin{addmargin*}[4mm]{-32mm}
+    % Logo und Wortmarke
+    \includegraphics[height=1.8cm]{images/unilogo_bild}
+    \hfill
+    \includegraphics[height=1.8cm]{images/unilogo_wort}
+    \vspace*{2.1em}
 
-\includegraphics[height=1.8cm]{images/unilogo_bild}
-\hfill
-\includegraphics[height=1.8cm]{images/unilogo_wort}
-\vspace*{2.1em}
+    % Briefkopf
+    \footnotesize
+    \textbf{Universität Ulm} \textbar ~89069 Ulm \textbar ~Germany
+    \hfill
+    \parbox[t]{42mm}{\bfseries Fakultät für\\\fakultaet\\\mdseries\institut}
+    \vspace*{2cm}
 
-{\footnotesize
-{\bfseries Universität Ulm} \textbar ~89069 Ulm \textbar ~Germany
-\hfill\parbox[t]{42mm}{\bfseries Fakultät für\\
-\fakultaet\\
-\mdseries \institut}
-\vspace*{2cm}
+    % Titel
+    \parbox{140mm}{\bfseries \raggedright \huge \titel}
 
-\parbox{140mm}{\bfseries \huge \titel}
+    % Untertitel
+    {\arbeit{} an der Universität Ulm}
+    \vspace*{4em}
 
-{\footnotesize Diplomarbeit an der Universität Ulm}
-\vspace*{4em}
-
-{\footnotesize
-{\bfseries Vorgelegt von:}\\
-\fullname\\\email\\[2em]
-{\bfseries Gutachter:}\\
-\gutachterA\\
-\gutachterB\\[2em]
-{\bfseries Betreuer:}\\
-\betreuer
-\\[1.5em]
-\jahr}
-}
+    % Prüfer etc.
+    \textbf{Vorgelegt von:}\\\fullname\\\email\\[2em]
+    \textbf{Gutachter:}\\\gutachterA\\\gutachterB\\[2em]
+    \textbf{Betreuer:}\\\betreuer\\[1.5em]
+    \jahr
 \end{addmargin*}
 
 
-% Impressum
+%%
+%% Impressum
+%%
 \clearpage
 \thispagestyle{empty}
-{ \small
-  \flushleft
-  „\titel“\\
-  Fassung vom \today \\ \vfill
-  \textsc{Danksagungen:} \FIXME{Danksagungen} \\ \vspace{1cm}
-  Bei der Erstellung dieser Diplomarbeit wurde ausschließlich freie Software eingesetzt: \\
-  \begin{figure}[ht]
-  	\subfigure{\includegraphics[height=1cm]{images/sw/ubuntu}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/texmaker}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/inkscape}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/subversion}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/jabref}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/firefox}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/evince}}
-  \end{figure}  
-  
-  \vspace{1cm}
-  Satz: PDF-\LaTeXe \\
-  Druck: \FIXME{Druck} \\ \vspace{1cm}
-  \copyright~\jahr~\fullname\\[0.5em]
-% Falls keine Lizenz gewünscht wird bitte den folgenden Text entfernen.
-% Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
-% vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
-% angegeben werden. Eine kommerzielle Verwertung ist für den Autor
-% weiter möglich.
-Dieses Werk ist unter der Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Germany License lizensiert: \url{http://creativecommons.org/licenses/by-nc-sa/3.0/de/}\\
-  Satz: PDF-\LaTeXe
+{
+    % vollständiger Titel
+    \small \flushleft \enquote{\titel}\\
+    Fassung vom \today
+    \vfill
+
+    % Danksagung
+    \textsc{Danksagungen:}
+    \FIXME{Danksagungen}
+    \vspace{1cm}
+
+    % Anerkennung
+    Bei der Erstellung dieser \arbeit{} wurde ausschließlich freie Software eingesetzt: \\
+    \begin{figure}[ht]
+        \centering
+        \subfigure{\includegraphics[height=1cm]{images/sw/ubuntu}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/texmaker}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/inkscape}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/subversion}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/jabref}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/firefox}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/evince}}
+    \end{figure}
+    \vspace{1cm}
+
+    % Urheberrechtshinweis
+    \copyright{} \jahr{} \fullname{}\\[0.5em]
+    % Falls keine Lizenz gewünscht wird bitte den folgenden Text entfernen.
+    % Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
+    % vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
+    % angegeben werden. Eine kommerzielle Verwertung ist für den Autor
+    % weiter möglich.
+    Dieses Werk ist unter der Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Germany License lizensiert: \url{http://creativecommons.org/licenses/by-nc-sa/3.0/de/}\\
+    Satz: PDF-\LaTeXe{}\\
+    Druck: \FIXME{Druck}
 }
 
 
-% ab hier Zeilenabstand 1,4 fach 10pt/14pt
+%%
+%% Inhaltsverzeichnis
+%%
 \setstretch{1.4}
-
 \tableofcontents
 
+
+%%
+%% Hauptteil
+%%
 \mainmatter
 \input{chapters/einleitung}
 % hier weitere Kapitel einbinden
 
 
+%%
+%% Anhänge
+%%
 \appendix
-% hier Anhänge einbinden
 \input{chapters/sources}
 
+
+%%
+%% Nachspann
+%%
 \backmatter
 
-\bibliographystyle{plaindin} % Nummern und alphabetisch sortiert
-%\bibliographystyle{alphadin} % Buchstaben und sortiert
-%\bibliographystyle{abbrvdin} % Nummern und abgekürzte Namen
-%\bibliographystyle{unsrtdin} % Nummern und unsortiert
+
+%%
+%% Literaturverzeichnis
+%%
 \bibliography{bibliography}
 
 
+%%
+%% Versicherung
+%%
 \cleardoublepage
 \thispagestyle{empty}
 
@@ -214,5 +313,5 @@ Ich erkläre, dass ich die Arbeit selbständig verfasst und keine anderen als di
 
 Ulm, den \dotfill
 
-\hspace{10cm} {\footnotesize \fullname}
+\hfill {\footnotesize \fullname}
 \end{document}
