@@ -49,6 +49,8 @@
 %\newcommand{\fakultaet}{Medizin}
 % nun noch unten das Institut einsetzen
 \newcommand{\institut}{Institut für Irgendetwas}
+\newcommand{\arbeit}{Diplomarbeit}
+%\newcommand{\arbeit}{Bachelorarbeit}
 
 %color in tables
 \usepackage{colortbl}
@@ -77,7 +79,7 @@
 \hypersetup{
 pdftitle=\titel,
 pdfauthor=\fullname,
-pdfsubject={Diplomarbeit},
+pdfsubject={\arbeit},
 pdfproducer={pdfeTex 3.14159-1.30.6-2.2},
 colorlinks=false,
 pdfborder=0 0 0	% keine Box um die Links!
@@ -124,7 +126,7 @@ pdfborder=0 0 0	% keine Box um die Links!
 
 \parbox{140mm}{\bfseries \huge \titel}
 
-{\footnotesize Diplomarbeit an der Universität Ulm}
+{\footnotesize \arbeit{} an der Universität Ulm}
 \vspace*{4em}
 
 {\footnotesize
@@ -149,7 +151,7 @@ pdfborder=0 0 0	% keine Box um die Links!
   „\titel“\\
   Fassung vom \today \\ \vfill
   \textsc{Danksagungen:} \FIXME{Danksagungen} \\ \vspace{1cm}
-  Bei der Erstellung dieser Diplomarbeit wurde ausschließlich freie Software eingesetzt: \\
+  Bei der Erstellung dieser \arbeit{} wurde ausschließlich freie Software eingesetzt: \\
   \begin{figure}[ht]
   	\subfigure{\includegraphics[height=1cm]{images/sw/ubuntu}}
   	\hspace{0.5cm} 
