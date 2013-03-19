@@ -1,6 +1,6 @@
 \chapter{Einleitung}
 
-Diese kleine Einleitung soll dem Nutzer helfen selbst die eigene Arbeit mit \LaTeX zu schreiben. Sie enthält zu den wichtigsten Themen Beispiele.
+Diese kleine Einleitung soll dem Nutzer helfen selbst die eigene Arbeit mit \LaTeX{} zu schreiben. Sie enthält zu den wichtigsten Themen Beispiele.
 
 
 \section{Struktur}
@@ -8,10 +8,10 @@ Diese kleine Einleitung soll dem Nutzer helfen selbst die eigene Arbeit mit \LaT
 Für diese Arbeit lassen sich als Überschriften die Überschriften in verschiedenen Stufen verwenden.
 
 \begin{verbatim}
-\chapter{Einleitung}
-\section{Struktur}
-\subsection{}
-\subsubsection{}
+    \chapter{Einleitung}
+    \section{Struktur}
+    \subsection{}
+    \subsubsection{}
 \end{verbatim}
 
 Allerdings sollte man sich überlegen, ob man wirklich bis zur Stufe \verb|subsubsection| Überschriften benötigt.
@@ -23,22 +23,28 @@ Allerdings sollte man sich überlegen, ob man wirklich bis zur Stufe \verb|subsu
 
 \subsection{Bilder}
 
-Bilder kann man natürlich auch in Arbeiten integrieren. Für Fotos und ähnliches unterstützt PDF-\LaTeX direkt \verb|jpg| und \verb|png|, ansonsten empfiehlt es sich Vektorgrafiken zu verwenden und diese als \verb|pdf| zu speichern. Sollte ein Bild einmal zu viel weißen Raum um sich haben, so kann man mit dem Werkzeug \verb|pdfcrop| das Bild automatisch ausschneiden\cite{pdfcrop}.
+Bilder kann man natürlich auch in Arbeiten integrieren. Für Fotos und ähnliches unterstützt PDF-\LaTeX{} direkt \verb|jpg| und \verb|png|, ansonsten empfiehlt es sich Vektorgrafiken zu verwenden und diese als \verb|pdf| zu speichern. Sollte ein Bild einmal zu viel weißen Raum um sich haben, so kann man mit dem Werkzeug \verb|pdfcrop| das Bild automatisch ausschneiden\cite{pdfcrop}.
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=.4\textwidth]{images/Suffix_tree_ABAB_BABA}
-\caption{\label{anker}Bechreibung des Bilds}
+    \centering
+    \includegraphics[width=.4\textwidth]{images/Suffix_tree_ABAB_BABA}
+    \caption{\label{anker}Bechreibung des Bilds}
 \end{figure}
 
 Mit Hilfe eines Labels kann man sich dann im Text auf diese Grafik (\ref{anker}) beziehen. 
 
 \begin{figure}[ht]
-  \centering 
-  \subfigure[Ein fettes u]{\includegraphics[width=0.2\linewidth]{images/a}\label{subfigurebsp:a}}
-  \hspace{1cm} 
-  \subfigure[Ein dünneres u]{\includegraphics[width=0.2\linewidth]{images/b}\label{subfigurebsp:b}}
-  \caption{Die \emph{u}s aus der Wortmarke}
+    \centering
+    \subfigure[Ein fettes u]{
+        \includegraphics[width=0.2\linewidth]{images/a}
+        \label{subfigurebsp:a}
+    }
+    \hspace{1cm}
+    \subfigure[Ein dünneres u]{
+        \includegraphics[width=0.2\linewidth]{images/b}
+        \label{subfigurebsp:b}
+    }
+    \caption{Die \emph{u}s aus der Wortmarke}
 \end{figure}
 
 Durch \verb|subfigure| lassen sich auch zwei kleine Bilder nebeneinander setzen. In Abbildung \ref{subfigurebsp:a} ist ein fettes u auf der linken und in \ref{subfigurebsp:b} ein dünneres auf der rechten Seite zu sehen.
@@ -46,16 +52,16 @@ Durch \verb|subfigure| lassen sich auch zwei kleine Bilder nebeneinander setzen.
 
 \subsection{Tabellen}
 
-Hier nur ein kurzes Beispiel, in jedem \LaTeX Buch finden sich gute Anleitungen zum Erstellen von Tabellen.
+Hier nur ein kurzes Beispiel, in jedem \LaTeX{} Buch finden sich gute Anleitungen zum Erstellen von Tabellen.
 
 \begin{table}[h]
-\begin{center}
-\begin{tabular}{|l|l|l|}
-	A & B & C \\\hline
-	x & x & x \\
-	x & x & x
-\end{tabular}
-\end{center}
+    \centering
+    \begin{tabular}{|l|l|l|}
+        A & B & C \\
+        \hline
+        x & x & x \\
+        x & x & x
+    \end{tabular}
 \end{table}
 
 
@@ -70,8 +76,8 @@ Mit der Schreibweise \verb|\[ Formel \]| wird die Formel mittig auf einer neuen 
 Dies ist die Kurzform der Umgebung \verb|equation|, mit der die Gleichung auch nummeriert wird. 
 
 \begin{equation}
-x_{1,2} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
-\label{mitternachtsformel}
+    x_{1,2} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
+    \label{mitternachtsformel}
 \end{equation}
 
 Wenn wir z.B.~über die beliebte Mitternachtsformel (Gleichung \ref{mitternachtsformel}) schreiben wollen lässt sich diese also wie ein Bild referenzieren.
@@ -96,13 +102,13 @@ public class Hello {
 }
 \end{lstlisting}
 
-Im Text gibt man Wörter am Besten als \verb|\verb##| an, dabei erwartet \LaTeX zweimal das gleiche Zeichen als Begrenzung. Im Beispiel ist dies die Raute \verb|#|, man kann aber ein anderes Zeichen nehmen, je nachdem was im zu druckenden Wort an Zeichen vorkommt.
+Im Text gibt man Wörter am Besten als \verb|\verb##| an, dabei erwartet \LaTeX{} zweimal das gleiche Zeichen als Begrenzung. Im Beispiel ist dies die Raute \verb|#|, man kann aber ein anderes Zeichen nehmen, je nachdem was im zu druckenden Wort an Zeichen vorkommt.
 
 
 
 \section{Text}
 
-Text kann mit dem Befehl \verb|\emph{}| \emph{hervorgehoben} werden. Falls in einem Satz ein Punkt vorkommt macht man vor ihm kein Leerzeichen sondern einen Backslash (\verb|\|), denn dann fügt \LaTeX den korrekten Abstand ein. Zwischen manche Abkürzungen wie z.\,B.\ fügt man zusätzlich \verb|\,| ein, um einen schmalen Abstand zu erzeugen.
+Text kann mit dem Befehl \verb|\emph{}| \emph{hervorgehoben} werden. Falls in einem Satz ein Punkt vorkommt macht man vor ihm kein Leerzeichen sondern einen Backslash (\verb|\|), denn dann fügt \LaTeX{} den korrekten Abstand ein. Zwischen manche Abkürzungen wie z.\,B.\ fügt man zusätzlich \verb|\,| ein, um einen schmalen Abstand zu erzeugen.
 
 \begin{verbatim}
 z.\,B.\ so
@@ -118,19 +124,29 @@ In wissenschaftlichen Arbeiten muss man des öfteren andere Arbeiten zitieren. D
 \subsection{Aufzählungen}
 
 \begin{itemize}
-\item  Hier
-\item  stehen
-\item  Sachen
-\begin{itemize}
-\item  die
-\item  sogar
-\item  eingerückt werden können.
-\end{itemize}
+    \item  Hier
+    \item  stehen
+    \item  Sachen
+    \begin{itemize}
+        \item  die
+        \item  sogar
+        \item  eingerückt werden können.
+    \end{itemize}
 \end{itemize}
 
+
+\subsection{TeX-Tricks}
+
+Ein geschütztes Leerzeichen an dem nicht umgebrochen wird, setzt man mit \verb!~!.
+
+Dank UTF8 gehen auch Anführungszeichen toll: „“
+
+Unter \emph{Windows} und \emph{Linux} können die Anführungszeichen mit \texttt{AltGr+V} und \texttt{AltGr+B} eingegeben werden. Unter \emph{OS X} drückt man \texttt{Alt+\^{}} und \texttt{Alt+2}.
+
+In manchen Editoren klappt das leider nicht. Dort kann man entweder manuell deutsche Anführungszeichen mit \verb!\glqq! und \verb!\grqq! setzen oder mit \verb!\enquote{Text}! die Art der Zeichen für das ganze Dokument im Header anpassen.
 
 
 \subsection{Weiterführendes}
 
-Zum Schluß sei auf die Vielzahl an Büchern zu \LaTeX verwiesen. In jeder Bibliothek wird sich eine Einführung finden, in der dann weitere Themen wie mathematische Formeln, Aufbau von Briefen und viele nützliche Erweiterungen besprochen werden.
+Zum Schluß sei auf die Vielzahl an Büchern zu \LaTeX{} verwiesen. In jeder Bibliothek wird sich eine Einführung finden, in der dann weitere Themen wie mathematische Formeln, Aufbau von Briefen und viele nützliche Erweiterungen besprochen werden.
 
