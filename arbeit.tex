@@ -188,35 +188,31 @@ Wie man noch längere Titel macht}
 %%
 \thispagestyle{empty}
 \begin{addmargin*}[4mm]{-32mm}
+    % Logo und Wortmarke
+    \includegraphics[height=1.8cm]{images/unilogo_bild}
+    \hfill
+    \includegraphics[height=1.8cm]{images/unilogo_wort}
+    \vspace*{2.1em}
 
-\includegraphics[height=1.8cm]{images/unilogo_bild}
-\hfill
-\includegraphics[height=1.8cm]{images/unilogo_wort}
-\vspace*{2.1em}
+    % Briefkopf
+    \footnotesize
+    \textbf{Universität Ulm} \textbar ~89069 Ulm \textbar ~Germany
+    \hfill
+    \parbox[t]{42mm}{\bfseries Fakultät für\\\fakultaet\\\mdseries\institut}
+    \vspace*{2cm}
 
-{\footnotesize
-{\bfseries Universität Ulm} \textbar ~89069 Ulm \textbar ~Germany
-\hfill\parbox[t]{42mm}{\bfseries Fakultät für\\
-\fakultaet\\
-\mdseries \institut}
-\vspace*{2cm}
+    % Titel
+    \parbox{140mm}{\bfseries \raggedright \huge \titel}
 
-\parbox{140mm}{\bfseries \huge \titel}
+    % Untertitel
+    {\arbeit{} an der Universität Ulm}
+    \vspace*{4em}
 
-{\footnotesize \arbeit{} an der Universität Ulm}
-\vspace*{4em}
-
-{\footnotesize
-{\bfseries Vorgelegt von:}\\
-\fullname\\\email\\[2em]
-{\bfseries Gutachter:}\\
-\gutachterA\\
-\gutachterB\\[2em]
-{\bfseries Betreuer:}\\
-\betreuer
-\\[1.5em]
-\jahr}
-}
+    % Prüfer etc.
+    \textbf{Vorgelegt von:}\\\fullname\\\email\\[2em]
+    \textbf{Gutachter:}\\\gutachterA\\\gutachterB\\[2em]
+    \textbf{Betreuer:}\\\betreuer\\[1.5em]
+    \jahr
 \end{addmargin*}
 
 
@@ -225,39 +221,47 @@ Wie man noch längere Titel macht}
 %%
 \clearpage
 \thispagestyle{empty}
-{ \small
-  \flushleft
-  „\titel“\\
-  Fassung vom \today \\ \vfill
-  \textsc{Danksagungen:} \FIXME{Danksagungen} \\ \vspace{1cm}
-  Bei der Erstellung dieser \arbeit{} wurde ausschließlich freie Software eingesetzt: \\
-  \begin{figure}[ht]
-  	\subfigure{\includegraphics[height=1cm]{images/sw/ubuntu}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/texmaker}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/inkscape}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/subversion}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/jabref}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/firefox}}
-  	\hspace{0.5cm} 
-  	\subfigure{\includegraphics[height=1cm]{images/sw/evince}}
-  \end{figure}  
-  
-  \vspace{1cm}
-  Satz: PDF-\LaTeXe \\
-  Druck: \FIXME{Druck} \\ \vspace{1cm}
-  \copyright~\jahr~\fullname\\[0.5em]
-% Falls keine Lizenz gewünscht wird bitte den folgenden Text entfernen.
-% Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
-% vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
-% angegeben werden. Eine kommerzielle Verwertung ist für den Autor
-% weiter möglich.
-Dieses Werk ist unter der Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Germany License lizensiert: \url{http://creativecommons.org/licenses/by-nc-sa/3.0/de/}\\
-  Satz: PDF-\LaTeXe
+{
+    % vollständiger Titel
+    \small \flushleft \enquote{\titel}\\
+    Fassung vom \today
+    \vfill
+
+    % Danksagung
+    \textsc{Danksagungen:}
+    \FIXME{Danksagungen}
+    \vspace{1cm}
+
+    % Anerkennung
+    Bei der Erstellung dieser \arbeit{} wurde ausschließlich freie Software eingesetzt: \\
+    \begin{figure}[ht]
+        \centering
+        \subfigure{\includegraphics[height=1cm]{images/sw/ubuntu}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/texmaker}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/inkscape}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/subversion}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/jabref}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/firefox}}
+        \hspace{0.5cm}
+        \subfigure{\includegraphics[height=1cm]{images/sw/evince}}
+    \end{figure}
+    \vspace{1cm}
+
+    % Urheberrechtshinweis
+    \copyright{} \jahr{} \fullname{}\\[0.5em]
+    % Falls keine Lizenz gewünscht wird bitte den folgenden Text entfernen.
+    % Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
+    % vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
+    % angegeben werden. Eine kommerzielle Verwertung ist für den Autor
+    % weiter möglich.
+    Dieses Werk ist unter der Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Germany License lizensiert: \url{http://creativecommons.org/licenses/by-nc-sa/3.0/de/}\\
+    Satz: PDF-\LaTeXe{}\\
+    Druck: \FIXME{Druck}
 }
 
 
@@ -309,5 +313,5 @@ Ich erkläre, dass ich die Arbeit selbständig verfasst und keine anderen als di
 
 Ulm, den \dotfill
 
-\hspace{10cm} {\footnotesize \fullname}
+\hfill {\footnotesize \fullname}
 \end{document}
