@@ -1,18 +1,34 @@
+%%
+%% Dokumentenart
+%%
 \NeedsTeXFormat{LaTeX2e}
-\documentclass[a4paper,10pt,bibliography=totoc,twoside,openright,numbers=noenddot,headings=normal,DIV=9
-%,draft
+\documentclass[
+    a4paper,
+    10pt,
+    bibliography=totoc,
+    twoside,
+    openright,
+    numbers=noenddot,
+    headings=normal,
+    DIV=9,
+    parskip
+    %,draft
 ]{scrbook}
+
+
+%%
+%% Unterstützung für deutsche Sprache, Umlaute etc.
+%%
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\KOMAoptions{DIV=last}
-\usepackage{scrhack}
-
-\pagestyle{headings}
 \usepackage[ngerman]{babel}
 \usepackage[babel,german=quotes]{csquotes}
-\renewcommand{\sfdefault}{phv}
-\renewcommand{\rmdefault}{phv}
-\renewcommand{\ttdefault}{pcr}
+
+
+%%
+%% Diverse Pakete
+%%
+\usepackage{scrhack}
 \usepackage{graphicx}
 \usepackage{verbatim}
 \usepackage{tabularx}
@@ -24,74 +40,136 @@
 \usepackage{amsthm}
 \usepackage{setspace}
 \usepackage{listings}
-\lstset{language=Java,
-  showstringspaces=false,
-  frame=single,
-  numbers=left,
-  basicstyle=\ttfamily,
-  numberstyle=\tiny}
-\newcommand{\FIXME}[1]{\colorbox{yellow}{\bf FIXME: #1}}
+\usepackage{colortbl}
+%\usepackage{showframe} % Seitenspiegel anzeigen
+\usepackage{microtype}
+\usepackage{hyperref} % muss letztes Paket in der Liste sein
 
-% hier Namen etc. einsetzen
+
+%%
+%% hier Namen etc. einsetzen
+%%
 \newcommand{\fullname}{Vorname Nachname}
 \newcommand{\email}{vorname.nachname@uni-ulm.de}
-\newcommand{\titel}{Ein sehr langer Titel, der sogar über mehrere Zeilen geht: Wie man noch längere Titel macht}
-%\newcommand{\titel}{Titel der Arbeit}
+\newcommand{\titel}{Ein sehr langer Titel, der sogar über mehrere Zeilen geht:
+Wie man noch längere Titel macht}
 \newcommand{\jahr}{2012}
 \newcommand{\matnr}{123456}
 \newcommand{\gutachterA}{Prof.\ Dr.\ Streng Geheim}
 \newcommand{\gutachterB}{Prof.\ Dr.\ Un Leserlich}
 \newcommand{\betreuer}{Betreuername}
-% hier richtige Fakultät auswählen
 \newcommand{\fakultaet}{Ingenieurwissenschaften\\und Informatik}
 %\newcommand{\fakultaet}{Mathematik und\\Wirtschaftswissenschaften}
 %\newcommand{\fakultaet}{Naturwissenschaften}
 %\newcommand{\fakultaet}{Medizin}
-% nun noch unten das Institut einsetzen
 \newcommand{\institut}{Institut für Irgendetwas}
 \newcommand{\arbeit}{Diplomarbeit}
 %\newcommand{\arbeit}{Bachelorarbeit}
 
-%color in tables
-\usepackage{colortbl}
+
+%%
+%% Setzt Autor und Titel in den Metadaten des erzeugten Dokumentes
+%%
+\pdfinfo{
+    /Author (\fullname)
+    /Title (\titel)
+    /Producer (pdfeTex 3.14159-1.30.6-2.2)
+    /Keywords ()
+}
+\hypersetup{
+    pdftitle=\titel,
+    pdfauthor=\fullname,
+    pdfsubject={\arbeit},
+    pdfproducer={pdfeTex 3.14159-1.30.6-2.2},
+    colorlinks=false,
+    pdfborder=0 0 0
+}
+
+
+%%
+%% Tiefe, bis zu der Überschriften in das Inhaltsverzeichnis kommen
+%%
+\setcounter{tocdepth}{3}
+
+
+%%
+%% Verhindert überhängende Absatzteile
+%%
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+
+
+%%
+%% Einstellungen für Codelistings
+%%
+\lstset{
+    language=Java,
+    showstringspaces=false,
+    frame=single,
+    numbers=left,
+    basicstyle=\ttfamily,
+    numberstyle=\tiny
+}
+
+
+%%
+%% Formatierung des Literaturverzeichnisses
+%%
+\bibliographystyle{plaindin} % Nummern und alphabetisch sortiert
+%\bibliographystyle{alphadin} % Buchstaben und sortiert
+%\bibliographystyle{abbrvdin} % Nummern und abgekürzte Namen
+%\bibliographystyle{unsrtdin} % Nummern und unsortiert
+
+
+%%
+%% Eigene Makros
+%%
+\newcommand{\FIXME}[1]{\colorbox{yellow}{\bf FIXME: #1}}
+
+
+%%
+%% Eigene Farben
+%%
 \definecolor{Gray}{rgb}{0.80784, 0.86667, 0.90196} %dunkelblau
 \definecolor{Lightgray}{rgb}{0.9176, 0.95, 0.95686} %hellblau
 \definecolor{Akzent}{rgb}{0.6627, 0.63529, 0.55294} %akzentfarbe
+
+
+%%
+%% Liniendicke in Tabellen etc.
+%%
 \setlength{\arrayrulewidth}{0.1pt}
 
-\clubpenalty10000
-\widowpenalty10000
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1.4ex plus 0.35ex minus 0.3ex}
+%%
+%% Schriftarten
+%%
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\ttdefault}{pcr}
+\KOMAoptions{DIV=last}
 
-% Tiefe, bis zu der Überschriften in das Inhaltsverzeichnis kommen
-\setcounter{tocdepth}{3}
 
-\pdfinfo{
-  /Author (\fullname)
-  /Title (\titel)
-  /Producer     (pdfeTex 3.14159-1.30.6-2.2)
-  /Keywords ()
-}
+%%
+%% Seitenlayout
+%%
+\pagestyle{headings}
 
-\usepackage{hyperref}
-\hypersetup{
-pdftitle=\titel,
-pdfauthor=\fullname,
-pdfsubject={\arbeit},
-pdfproducer={pdfeTex 3.14159-1.30.6-2.2},
-colorlinks=false,
-pdfborder=0 0 0	% keine Box um die Links!
-}
 
-%Trennungsregeln
+%%
+%% Trennungsregeln
+%%
 \hyphenation{Sil-ben-trenn-ung}
 
-% Schönere Bullets bei Aufzählungen
-% \renewcommand{\labelitemi}{$\bullet$}
-% \renewcommand{\labelitemii}{$\circ$}
-% \renewcommand{\labelitemiii}{$\cdot$}
+
+%%
+%% Schönere Bullets bei Aufzählungen
+%%
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemiii}{$\cdot$}
+
 
 % TeX-Tricks
 % Dank UTF8 gehen auch Anführungszeichen toll: „“
@@ -105,10 +183,21 @@ pdfborder=0 0 0	% keine Box um die Links!
 % im Header anpassen. Siehe dazu die Zeile mit dem Paket csquotes.
 
 
+%%
+%% Beginn des eigentlichen Dokumentes
+%%
 \begin{document}
+
+
+%%
+%% Vorspann
+%%
 \frontmatter
 
-% Titelseite
+
+%%
+%% Titelseite
+%%
 \thispagestyle{empty}
 \begin{addmargin*}[4mm]{-32mm}
 
@@ -143,7 +232,9 @@ pdfborder=0 0 0	% keine Box um die Links!
 \end{addmargin*}
 
 
-% Impressum
+%%
+%% Impressum
+%%
 \clearpage
 \thispagestyle{empty}
 { \small
@@ -182,29 +273,43 @@ Dieses Werk ist unter der Creative Commons Attribution-NonCommercial-ShareAlike 
 }
 
 
-% ab hier Zeilenabstand 1,4 fach 10pt/14pt
+%%
+%% Inhaltsverzeichnis
+%%
 \setstretch{1.4}
-
 \tableofcontents
 
+
+%%
+%% Hauptteil
+%%
 \mainmatter
 \input{chapters/einleitung}
 % hier weitere Kapitel einbinden
 
 
+%%
+%% Anhänge
+%%
 \appendix
-% hier Anhänge einbinden
 \input{chapters/sources}
 
+
+%%
+%% Nachspann
+%%
 \backmatter
 
-\bibliographystyle{plaindin} % Nummern und alphabetisch sortiert
-%\bibliographystyle{alphadin} % Buchstaben und sortiert
-%\bibliographystyle{abbrvdin} % Nummern und abgekürzte Namen
-%\bibliographystyle{unsrtdin} % Nummern und unsortiert
+
+%%
+%% Literaturverzeichnis
+%%
 \bibliography{bibliography}
 
 
+%%
+%% Versicherung
+%%
 \cleardoublepage
 \thispagestyle{empty}
 
