@@ -27,7 +27,7 @@ Meist wirst du einen Editor verwenden, der dir einiges an Unterstüzung bietet. 
 
 Die Vorlage ist mit dem Zeichensatz UTF-8 gespeichert. Das ist der Zeichensatz der überall verwendet werden sollte, denn damit lassen sich alle Sprachen der Welt schreiben. Außerdem ist es angenehmer direkt ä zu schreiben als \"{a} oder ähnliches. Auch echte deutsche Anführungszeichen lassen sich ohne Sonderbefehle nutzen („“).
 
-Die meisten Editoren können mittlerweile UTF8, z.B. TexMaker, kile, gedit. Da TexMaker Anfängerfreundlich und einfach zu bedienen ist hier noch kurz die Anleitung für seine Benutzung. Stell im Menü unter Options > Configure Texmaker unter Editor das "Editor Font Encoding" auf UTF-8. Lade die Datei diplom.tex und lasse sie mit einem Klick auf den Kopf "pdflatex" oben durch TeX laufen. Anschließend kannst du das Ergebnis mit einem PDF-Betrachter ansehen.
+Die meisten Editoren können mittlerweile UTF8, z.B. TexMaker, kile, gedit. Da TexMaker Anfängerfreundlich und einfach zu bedienen ist hier noch kurz die Anleitung für seine Benutzung. Stell im Menü unter Options > Configure Texmaker unter Editor das "Editor Font Encoding" auf UTF-8. Lade die Datei arbeit.tex und lasse sie mit einem Klick auf den Kopf "pdflatex" oben durch TeX laufen. Anschließend kannst du das Ergebnis mit einem PDF-Betrachter ansehen.
 
 
 ## Zu guter Letzt
