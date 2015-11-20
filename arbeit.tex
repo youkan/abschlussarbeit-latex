@@ -43,6 +43,7 @@
 \usepackage{colortbl}
 %\usepackage{showframe} % Seitenspiegel anzeigen
 \usepackage{microtype}
+\usepackage{todonotes}
 \usepackage{hyperref} % muss letztes Paket in der Liste sein
 
 
@@ -125,7 +126,6 @@ Wie man noch längere Titel macht}
 %%
 %% Eigene Makros
 %%
-\newcommand{\FIXME}[1]{\colorbox{yellow}{\bfseries FIXME: #1}}
 
 
 %%
@@ -229,7 +229,7 @@ Wie man noch längere Titel macht}
 
     % Danksagung
     \textsc{Danksagungen:}
-    \FIXME{Danksagungen}
+    \todo{Danksagungen}
     \vspace{1cm}
 
     % Anerkennung
@@ -261,7 +261,7 @@ Wie man noch längere Titel macht}
     % weiter möglich.
     Dieses Werk ist unter der Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Germany License lizensiert: \url{http://creativecommons.org/licenses/by-nc-sa/3.0/de/}\\
     Satz: PDF-\LaTeXe{}\\
-    Druck: \FIXME{Druck}
+    Druck: \todo{Druck}
 }
 
 
@@ -270,7 +270,7 @@ Wie man noch längere Titel macht}
 %%
 \setstretch{1.4}
 \tableofcontents
-
+%\listoftodos %hiermit wird ähnlich dem Inhaltsverzeichnis eine Liste aller offenen ToDo Einträge inkl. Link und Seitenzahl erstellt 
 
 %%
 %% Hauptteil
