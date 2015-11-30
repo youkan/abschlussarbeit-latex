@@ -32,7 +32,7 @@
 \usepackage{graphicx}
 \usepackage{verbatim}
 \usepackage{tabularx}
-\usepackage{subfigure}
+\usepackage{subfig}
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{amssymb}
@@ -43,6 +43,8 @@
 \usepackage{colortbl}
 %\usepackage{showframe} % Seitenspiegel anzeigen
 \usepackage{microtype}
+\usepackage{todonotes}
+\usepackage[numbers]{natbib} % zusätzlicher Bibliographiestil 
 \usepackage{hyperref} % muss letztes Paket in der Liste sein
 
 
@@ -58,13 +60,14 @@ Wie man noch längere Titel macht}
 \newcommand{\gutachterA}{Prof.\ Dr.\ Streng Geheim}
 \newcommand{\gutachterB}{Prof.\ Dr.\ Un Leserlich}
 \newcommand{\betreuer}{Betreuername}
-\newcommand{\fakultaet}{Ingenieurwissenschaften und Informatik}
+\newcommand{\fakultaet}{Ingenieurwissenschaften, Informatik und Psychologie}
 %\newcommand{\fakultaet}{Mathematik und Wirtschaftswissenschaften}
 %\newcommand{\fakultaet}{Naturwissenschaften}
 %\newcommand{\fakultaet}{Medizin}
 \newcommand{\institut}{Institut für Irgendetwas}
 %\newcommand{\arbeit}{Diplomarbeit}
 \newcommand{\arbeit}{Bachelorarbeit}
+%\newcommand{\arbeit}{Masterarbeit}
 
 
 %%
@@ -117,6 +120,7 @@ Wie man noch längere Titel macht}
 %% Formatierung des Literaturverzeichnisses
 %%
 \bibliographystyle{plaindin} % Nummern und alphabetisch sortiert
+%\bibliographystyle{plainnat} % Nummern und alphabetisch sortiert, URL, DOI etc. in der Angabe
 %\bibliographystyle{alphadin} % Buchstaben und sortiert
 %\bibliographystyle{abbrvdin} % Nummern und abgekürzte Namen
 %\bibliographystyle{unsrtdin} % Nummern und unsortiert
@@ -125,7 +129,6 @@ Wie man noch längere Titel macht}
 %%
 %% Eigene Makros
 %%
-\newcommand{\FIXME}[1]{\colorbox{yellow}{\bfseries FIXME: #1}}
 
 
 %%
@@ -229,26 +232,26 @@ Wie man noch längere Titel macht}
 
     % Danksagung
     \textsc{Danksagungen:}
-    \FIXME{Danksagungen}
+    \todo{Danksagungen}
     \vspace{1cm}
 
     % Anerkennung
     Bei der Erstellung dieser \arbeit{} wurde ausschließlich freie Software eingesetzt: \\
     \begin{figure}[ht]
         \centering
-        \subfigure{\includegraphics[height=1cm]{images/sw/ubuntu}}
+        \subfloat{\includegraphics[height=1cm]{images/sw/ubuntu}}
         \hspace{0.5cm}
-        \subfigure{\includegraphics[height=1cm]{images/sw/texmaker}}
+        \subfloat{\includegraphics[height=1cm]{images/sw/texmaker}}
         \hspace{0.5cm}
-        \subfigure{\includegraphics[height=1cm]{images/sw/inkscape}}
+        \subfloat{\includegraphics[height=1cm]{images/sw/inkscape}}
         \hspace{0.5cm}
-        \subfigure{\includegraphics[height=1cm]{images/sw/subversion}}
+        \subfloat{\includegraphics[height=1cm]{images/sw/subversion}}
         \hspace{0.5cm}
-        \subfigure{\includegraphics[height=1cm]{images/sw/jabref}}
+        \subfloat{\includegraphics[height=1cm]{images/sw/jabref}}
         \hspace{0.5cm}
-        \subfigure{\includegraphics[height=1cm]{images/sw/firefox}}
+        \subfloat{\includegraphics[height=1cm]{images/sw/firefox}}
         \hspace{0.5cm}
-        \subfigure{\includegraphics[height=1cm]{images/sw/evince}}
+        \subfloat{\includegraphics[height=1cm]{images/sw/evince}}
     \end{figure}
     \vspace{1cm}
 
@@ -261,7 +264,7 @@ Wie man noch längere Titel macht}
     % weiter möglich.
     Dieses Werk ist unter der Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Germany License lizensiert: \url{http://creativecommons.org/licenses/by-nc-sa/3.0/de/}\\
     Satz: PDF-\LaTeXe{}\\
-    Druck: \FIXME{Druck}
+    Druck: \todo{Druck}
 }
 
 
@@ -270,7 +273,7 @@ Wie man noch längere Titel macht}
 %%
 \setstretch{1.4}
 \tableofcontents
-
+%\listoftodos %hiermit wird ähnlich dem Inhaltsverzeichnis eine Liste aller offenen ToDo Einträge inkl. Link und Seitenzahl erstellt 
 
 %%
 %% Hauptteil
