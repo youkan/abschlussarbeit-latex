@@ -19,10 +19,13 @@
 %%
 %% Unterstützung für deutsche Sprache, Umlaute etc.
 %%
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
-\usepackage[babel,german=quotes]{csquotes}
+\usepackage{polyglossia}
+\setmainlanguage[babelshorthands=true]{german}
+\setotherlanguage[variant=american]{english}
+
+%% Schriftpaket für gute, freie Serifenschrift
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
 
 
 %%
@@ -55,7 +58,7 @@
 \newcommand{\email}{vorname.nachname@uni-ulm.de}
 \newcommand{\titel}{Ein sehr langer Titel, der sogar über mehrere Zeilen geht:
 Wie man noch längere Titel macht}
-\newcommand{\jahr}{2012}
+\newcommand{\jahr}{2020}
 \newcommand{\matnr}{123456}
 \newcommand{\gutachterA}{Prof.\ Dr.\ Streng Geheim}
 \newcommand{\gutachterB}{Prof.\ Dr.\ Un Leserlich}
@@ -73,12 +76,6 @@ Wie man noch längere Titel macht}
 %%
 %% Setzt Autor und Titel in den Metadaten des erzeugten Dokumentes
 %%
-\pdfinfo{
-    /Author (\fullname)
-    /Title (\titel)
-    /Producer (pdfeTex 3.14159-1.30.6-2.2)
-    /Keywords ()
-}
 \hypersetup{
     pdftitle=\titel,
     pdfauthor=\fullname,
@@ -226,7 +223,7 @@ Wie man noch längere Titel macht}
 \thispagestyle{empty}
 {
     % vollständiger Titel
-    \small \flushleft \enquote{\titel}\\
+    \small \flushleft \titel\\
     Fassung vom \today
     \vfill
 
