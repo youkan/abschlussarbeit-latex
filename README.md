@@ -1,8 +1,12 @@
-# abschlussarbeit-latex
+# Repo has moved to Codeberg
+
+I'm no longer using Github and have moved the repo to https://codeberg.org/wagashiya/abschlussarbeit-latex
+
+## abschlussarbeit-latex
 
 This repo contains a template to typeset your BSc or MSc thesis. It was developed primarily for computer science students at the university of Ulm, Germany.
 
-# Willkommen!
+## Willkommen!
 
 Liebe Nutzerin, lieber Nutzer dieser Vorlage,
 
